@@ -1,4 +1,4 @@
-const{sqlCreateSession, sqlDeleteSession,sqlUpdateSession,sqlDeleteSession, sqlCreateMovie, sqlShowsMovie, sqlUpdateMovie, sqlDeleteMovie} = require('models/session')
+const{sqlCreateSession, sqlDeleteSession,sqlUpdateSession, sqlCreateMovie, sqlShowsMovie, sqlUpdateMovie, sqlDeleteMovie} = require('../models/session')
 const connect = require('../database');
 const myConnect = connect
 

@@ -37,7 +37,6 @@ const sqlCreateMovie = {
   module.exports = {
     sqlCreateSession,
     sqlShowsSession,
-    sqlShowsSession,
     sqlDeleteSession,
     sqlCreateMovie,
     sqlShowsMovie,
