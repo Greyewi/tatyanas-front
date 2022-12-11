@@ -1,5 +1,5 @@
 const {sqlCreateUser, sqlDeleteProject, sqlDeleteTasksByProject, sqlGetUser, sqlProjectById, sqlUpdateProjects, sqlUserByLogin} = 
-require('..models/user')
+require('../models/user')
 const connect = require('../database');
 const myConnect = connect
 

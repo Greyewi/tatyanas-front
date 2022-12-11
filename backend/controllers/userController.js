@@ -1,4 +1,4 @@
-const {createUser, readUser} = require('../models/user')
+const {createUser, readUser} = require('../services/user')
 const jwt = require('jsonwebtoken')
 const {privateKey} = require('../constants')
 

@@ -5,9 +5,14 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './CSS/index.scss';
+import axios from "axios";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
+
+if(localStorage.getItem('token')){
+  axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
+}
 
 root.render(
   <React.StrictMode>

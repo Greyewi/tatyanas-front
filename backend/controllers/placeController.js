@@ -2,8 +2,8 @@ const { createCinemahall, editCinemahall, removeCinemahall, createPlace, editPla
 
 const cinemahall_read = async (req, res) => {
   try {
-    const { status, data } = await readCinemahalls()
-    res.status(status).send(data);
+    const { status, data: {rows} } = await readCinemahalls()
+    res.status(status).send(rows);
   } catch (err) {
     res.status(500).send(err.message)
   }
@@ -21,8 +21,8 @@ const cinemahall_create = async (req, res) => {
 const cinemahall_edit = async (req, res) => {
   try {
     const { body: { id, count_x, count_y } } = req
-    const { status, data } = await editCinemahall(id, count_x, count_y);
-    res.status(status).send(data);
+    const { status, data: {rows} } = await editCinemahall(id, count_x, count_y);
+    res.status(status).send(rows);
   } catch (err) {
     res.status(500).send(err.message)
   }
@@ -30,8 +30,7 @@ const cinemahall_edit = async (req, res) => {
 
 const cinemahall_remove = async (req, res) => {
   try {
-    const { body: { id } } = req
-    const { status, data } = await removeCinemahall(id);
+    const { status } = await removeCinemahall(req.params.id);
     res.status(status).send('ok');
   } catch (err) {
     res.status(500).send(err.message)
@@ -40,9 +39,9 @@ const cinemahall_remove = async (req, res) => {
 
 const place_read = async (req, res) => {
   try {
-    const { body: { hall_id } } = req
-    const { status, data } = await readPlaces(hall_id)
-    res.status(status).send(data);
+    const { query: { hall_id } } = req
+    const { status, data: {rows} } = await readPlaces(hall_id)
+    res.status(status).send(rows);
   } catch (err) {
     res.status(500).send(err.message)
   }
@@ -61,8 +60,21 @@ const place_create = async (req, res) => {
 const place_edit = async (req, res) => {
   try {
     const { body: { id, hall_id, is_vip, row } } = req
-    const { status, data } = await editPlace(id, hall_id, is_vip, row);
-    res.status(status).send(data);
+    const { status, data: {rows} } = await editPlace(id, hall_id, is_vip, row);
+    res.status(status).send(rows);
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
+}
+
+const places_edit = async (req, res) => {
+  try {
+    const { body: { places } } = req
+    for (const p of places) {
+      await editPlace(p.id, p.is_vip, p.is_blocked)
+    }
+
+    res.status(200).send('OK');
   } catch (err) {
     res.status(500).send(err.message)
   }
@@ -71,7 +83,7 @@ const place_edit = async (req, res) => {
 const place_remove = async (req, res) => {
   try {
     const { body: { id } } = req
-    const { status, data } = await removePlace(id);
+    const { status } = await removePlace(id);
     res.status(status).send('ok');
   } catch (err) {
     res.status(500).send(err.message)
@@ -87,5 +99,6 @@ module.exports = {
   place_edit,
   place_remove,
   place_read,
+  places_edit,
   cinemahall_read
 }

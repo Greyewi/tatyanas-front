@@ -14,7 +14,7 @@ function Dropdown({children}) {
 
   return (
     <main className="conf-steps">
-      {children.map(item => <section className="conf-step">
+      {children.map((item, key) => <section key={item.title + key} className="conf-step">
         <header
           className={activeTabs.includes(item.title) ? "conf-step__header conf-step__header_opened" : "conf-step__header conf-step__header_closed"}
           onClick={handleDropDown(item.title)}

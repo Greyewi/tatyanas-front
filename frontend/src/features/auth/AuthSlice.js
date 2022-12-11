@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {fetchSignIn, fetchSignUp} from "./authAPI";
+import axios from "axios";
 
 const initialState = {
   user: null,
@@ -9,7 +10,8 @@ const initialState = {
 export const authAsync = createAsyncThunk(
   'auth/signIn',
   async ({login, password}) => {
-    const response = await fetchSignIn(login, password);
+    const response = await axios.post('http://127.0.0.1:8000/api/user/auth', {login, password})
+    axios.defaults.headers.common['Authorization'] = "Bearer " + response.data;
     return response.data;
   }
 );

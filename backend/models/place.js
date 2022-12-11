@@ -4,21 +4,20 @@ const sqlCreateCinemahall = {
 }
 
 const sqlShowsCinemahall = {
-  text: `SELECT * FROM public.111cinema_hall`
+  text: `SELECT * FROM public.cinema_hall`
 }
 
 const sqlUpdateCinemahall = {
-  text: `UPDATE public.cinema_hall SET count_x=$1, count_y=$2 WHERE id=$3
-    RETURNING id, count_x, count_y`
+  text: `UPDATE public.cinema_hall SET count_x=$1, count_y=$2, is_vip=$3, is_blocked=$4 WHERE id=$5
+    RETURNING id, count_x, count_y, is_blocked`
 }
 
 const sqlDeleteCinemahall = {
-  text: `DELETE FROM public.cinema_hall WHERE id=$1;`
+  text: `DELETE FROM public.cinema_hall WHERE id=$1`
 }
 
 const sqlCreatePlace = {
-    text: `INSERT INTO public.place (hall_id, is_vip, row) VALUES ($1, $2, $3)
-      RETURNING id, hall_id, is_vip, row`
+    text: `INSERT INTO public.place (hall_id, row, num) VALUES ($1, $2, $3)`
   }
   
   const sqlShowsPlace = {
@@ -26,8 +25,7 @@ const sqlCreatePlace = {
   }
   
   const sqlUpdatePlace = {
-    text: `UPDATE public.place SET is_vip=$1 WHERE id=$2
-      RETURNING id, hall_id, is_vip, row`
+    text: `UPDATE public.place SET is_vip=$1, is_blocked=$2 WHERE id=$3`
   }
   
   const sqlDeletePlace = {

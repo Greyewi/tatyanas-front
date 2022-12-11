@@ -1020,23 +1020,19 @@ li {
   height: 100%;
   z-index: 100;
 
-&__title {
-   font-size: 2.2rem;
-   font-weight: 700;
-   text-transform: uppercase;
- }
+
 
 &.active {
    display: block;
 
    background: rgba(0,0,0,0.7);
    animation: 0.5s ease-out 0s 1 darken;
+}
 
-.popup__content {
-  top: 100px;
-  animation: 0.5s ease-out 0s 1 slideFromTop;
-}
-}
+  .popup__content {
+    top: 100px;
+    animation: 0.5s ease-out 0s 1 slideFromTop;
+  }
 
 &__container {
    position: relative;
@@ -1078,4 +1074,30 @@ img {
  }
 }
 }
+}
+
+
+.popup__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, 0.3);
+
+
+  .popup__content {
+    top: 100px;
+    animation: 0.5s ease-out 0s 1 slideFromTop;
+  }
+
+  .popup__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .popup__wrapper {
+    padding: 35px (2 * $colwidth + $gapwidth);
+  }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { SignIn } from './features/auth/SignIn';
-import { SignUp } from './features/auth/SignUp';
 import {
   BrowserRouter,
   Routes,
@@ -15,10 +14,8 @@ function App() {
       </header>
       <BrowserRouter>
         <Routes>
-          <Route path="/sign-in" element={<SignIn />} />
-          {/*<Route path="/sign-up" element={<SignUp />} />*/}
           <Route path="/admin" element={<Admin />} />
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<SignIn />} />
         </Routes>
       </BrowserRouter>
     </div>

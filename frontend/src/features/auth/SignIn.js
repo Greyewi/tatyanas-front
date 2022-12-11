@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from 'react-router-dom'
 import {
   authAsync,
 } from './AuthSlice';
 
 export function SignIn() {
   const dispatch = useDispatch();
+  const token = useSelector(state => state.auth.user)
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-
+  const naviagate = useNavigate()
+  useEffect(() => {
+    if(token) {
+      localStorage.setItem('token', token)
+      naviagate('/admin')
+    }
+  }, [token])
   return (
     <main>
       <header className="page-header">
