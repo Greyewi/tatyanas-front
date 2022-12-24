@@ -1,4 +1,4 @@
-const { createCinemahall, editCinemahall, removeCinemahall, createPlace, editPlace, removePlace, readCinemahalls, readPlaces } = require('../services/place')
+const { createCinemahall, editCinemahall, removeCinemahall, editCinemahallPrice, createPlace, editPlace, removePlace, readCinemahalls, readPlaces, editPrice } = require('../services/place')
 
 const cinemahall_read = async (req, res) => {
   try {
@@ -22,6 +22,16 @@ const cinemahall_edit = async (req, res) => {
   try {
     const { body: { id, count_x, count_y } } = req
     const { status, data: {rows} } = await editCinemahall(id, count_x, count_y);
+    res.status(status).send(rows);
+  } catch (err) {
+    res.status(500).send(err.message)
+  }
+}
+
+const cinemahall_edit_price = async (req, res) => {
+  try {
+    const { body: { id, price, price_vip } } = req
+    const { status, data: {rows} } = await editCinemahallPrice(id, price, price_vip);
     res.status(status).send(rows);
   } catch (err) {
     res.status(500).send(err.message)
@@ -100,5 +110,6 @@ module.exports = {
   place_remove,
   place_read,
   places_edit,
-  cinemahall_read
+  cinemahall_read,
+  cinemahall_edit_price,
 }

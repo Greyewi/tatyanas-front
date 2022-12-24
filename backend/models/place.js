@@ -12,6 +12,11 @@ const sqlUpdateCinemahall = {
     RETURNING id, count_x, count_y, is_blocked`
 }
 
+const sqlUpdateCinemahallPrices = {
+  text: `UPDATE public.cinema_hall SET price=$1, price_vip=$2 WHERE id=$3
+    RETURNING *`
+}
+
 const sqlDeleteCinemahall = {
   text: `DELETE FROM public.cinema_hall WHERE id=$1`
 }
@@ -36,6 +41,7 @@ module.exports = {
   sqlCreateCinemahall,
   sqlShowsCinemahall,
   sqlUpdateCinemahall,
+  sqlUpdateCinemahallPrices,
   sqlDeleteCinemahall,
   sqlCreatePlace,
   sqlShowsPlace,

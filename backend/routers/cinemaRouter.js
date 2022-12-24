@@ -19,6 +19,7 @@ const {cinemahall_create,
     places_edit,
     place_remove,
     place_read,
+    cinemahall_edit_price,
     cinemahall_read} = require('../controllers/placeController')
 
 router.post('/user/add', user_create)
@@ -29,13 +30,14 @@ router.delete('/session', session_remove)
 router.get('/session', session_read)
 router.post('/movie', movie_create)
 router.put('/movie', movie_edit)
-router.delete('/movie', movie_remove)
+router.delete('/movie/:id', movie_remove)
 router.get('/movie', movie_read)
 router.post('/ticket', ticket_create)
 router.delete('/ticket', ticket_remove)
 router.get('/ticket', ticket_read)
 router.post('/cinemahall', cinemahall_create)
-router.put('/cinemahall', cinemahall_edit)
+//router.put('/cinemahall', cinemahall_edit)
+router.put('/cinemahall', cinemahall_edit_price)
 router.delete('/cinemahall/:id', cinemahall_remove)
 router.get('/cinemahall', cinemahall_read)
 router.post('/place', place_create)

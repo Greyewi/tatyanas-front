@@ -9,7 +9,7 @@ function Places() {
   const {cinemahalls, places, isLoading} = useSelector(state => state.cinemahall)
   const [activeHall, setActiveHall] = useState(cinemahalls[0])
   const [formatPlaces, setFormatPlaces] = useState([])
-
+  console.log(activeHall.id)
   useEffect(() => {
     dispatch(getPlacesAsync(activeHall.id))
   }, [activeHall.id])
@@ -22,11 +22,11 @@ function Places() {
         formattedPlaces[places[i].row - 1] = [places[i]]
     }
     setFormatPlaces(formattedPlaces)
-  }, [places?.length, setFormatPlaces])
+  }, [places?.length, setFormatPlaces, places[0]?.hall_id])
 
-  if(isLoading){
-    return 'Подождите загрузку ...'
-  }
+  // if(isLoading){
+  //   return 'Подождите загрузку ...'
+  // }
 
   return (
     <>
