@@ -11,6 +11,7 @@ function AddSeason({setIsModalOpen}) {
     <form onSubmit={(e) => {
       e.preventDefault()
       dispatch(createSessionAsync(season))
+      setIsModalOpen(false)
     }}>
       <label className="conf-step__label conf-step__label-fullsize" htmlFor="rows">
         Select movie

@@ -18,6 +18,10 @@ function Seasons() {
     dispatch(getSessionsAsync())
   }, [])
 
+  useEffect(() => {
+    dispatch(getSessionsAsync())
+    dispatch(getFilmsAsync())
+  }, [isOpenSeason])
 
   return (
     <>
