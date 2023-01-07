@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getPlacesAsync, updatePlacesAsync} from '../cinemahall/CinemahallSlice'
+import {getPlacesAsync, updatePlacesAsync} from '../CinemahallSlice'
 import classNames from 'classnames'
 import {flatten} from "lodash";
 

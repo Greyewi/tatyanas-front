@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Modal from '../../../components/Modal'
 import AddCinema from './addCinema'
-import {getFilmsAsync, removeFilmAsync, getSessionsAsync} from "../cinemahall/CinemahallSlice";
+import {getFilmsAsync, removeFilmAsync, getSessionsAsync} from "../CinemahallSlice";
 import {useSelector, useDispatch} from "react-redux";
 import CloseImg from "../../../i/close.png";
 import AddSeason from "./addSeason";
@@ -18,7 +18,7 @@ function Seasons() {
     dispatch(getSessionsAsync())
   }, [])
 
-  console.log(sessions)
+
   return (
     <>
       <p className="conf-step__paragraph">

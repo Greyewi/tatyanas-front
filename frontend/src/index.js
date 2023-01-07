@@ -5,6 +5,7 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './CSS/index.scss';
+import './CSS/styles.scss';
 import axios from "axios";
 
 const container = document.getElementById('root');

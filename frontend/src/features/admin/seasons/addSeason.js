@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {createSessionAsync} from "../cinemahall/CinemahallSlice";
+import {createSessionAsync} from "../CinemahallSlice";
 import {useDispatch, useSelector} from "react-redux";
 
 function AddSeason({setIsModalOpen}) {
   const dispatch = useDispatch()
   const {cinemahalls, movies} = useSelector(state => state.cinemahall)
   const [season, setSeason] = useState({movie_id: null, cinemahall_id: null, time_start: null})
-  console.log(season)
+
   return (
     <form onSubmit={(e) => {
       e.preventDefault()

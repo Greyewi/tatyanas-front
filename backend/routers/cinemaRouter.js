@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router() //middleware, collects our routes
-const {user_create, user_auth} = require('../controllers/userController')
+const {user_create, user_auth, get_client_data, get_client_places} = require('../controllers/userController')
 const {session_create,
     session_edit,
     session_remove,
@@ -24,6 +24,8 @@ const {cinemahall_create,
 
 router.post('/user/add', user_create)
 router.post('/user/auth', user_auth)
+router.get('/user/client', get_client_data)
+router.get('/user/places/:id', get_client_places)
 router.post('/session', session_create)
 router.put('/session', session_edit)
 router.delete('/session', session_remove)
@@ -44,9 +46,6 @@ router.post('/place', place_create)
 router.put('/place', places_edit)
 router.delete('/place', place_remove)
 router.get('/place', place_read)
-
-
-
 
 
 module.exports = router

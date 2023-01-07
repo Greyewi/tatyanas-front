@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {createFilmAsync, getFilmsAsync} from "../cinemahall/CinemahallSlice";
+import {createFilmAsync, getFilmsAsync} from "../CinemahallSlice";
 import {useDispatch} from "react-redux";
 
 function AddCinema({setIsModalOpen}) {

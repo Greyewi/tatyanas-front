@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {editCinemaHallAsync} from "../cinemahall/CinemahallSlice";
+import {editCinemaHallAsync} from "../CinemahallSlice";
 import {useSelector, useDispatch} from "react-redux";
 
 function Tickets() {

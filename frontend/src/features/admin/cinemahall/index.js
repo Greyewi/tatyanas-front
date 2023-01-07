@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {createCinemaHallAsync, getCinemaHallAsync, removeCinemaHallAsync} from './CinemahallSlice'
+import {createCinemaHallAsync, getCinemaHallAsync, removeCinemaHallAsync} from '../CinemahallSlice'
 import {useDispatch, useSelector} from "react-redux";
 import Modal from '../../../components/Modal'
 
